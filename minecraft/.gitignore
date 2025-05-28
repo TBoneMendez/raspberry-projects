@@ -1,0 +1,5 @@
+# Minecraft Bedrock ignored files
+bedrock_server
+*.so
+*.zip
+worlds/

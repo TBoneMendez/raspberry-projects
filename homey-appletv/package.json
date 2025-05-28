@@ -1,0 +1,13 @@
+{
+  "name": "homey-appletv",
+  "version": "1.0.0",
+  "description": "Henter metadata fra Apple TV og sender til Homey",
+  "main": "start.js",
+  "scripts": {
+    "start": "node start.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "node-appletv-x": "^1.0.19"
+  }
+}
