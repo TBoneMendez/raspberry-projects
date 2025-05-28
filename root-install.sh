@@ -9,16 +9,16 @@ read -p "Your choice (1/2/3): " choice
 case $choice in
   1)
     echo "📦 Running homey-appletv install..."
-    bash homey-appletv/install.sh
+    bash ./homey-appletv/homey-appletv-install.sh
     ;;
   2)
     echo "📦 Running minecraft-bedrock install..."
-    bash minecraft-bedrock/install.sh
+    bash ./minecraft/minecraft-install.sh
     ;;
   3)
     echo "📦 Installing all projects..."
-    bash homey-appletv/install.sh
-    bash minecraft-bedrock/install.sh
+    bash ./homey-appletv/homey-appletv-install.sh
+    bash ./minecraft/minecraft-install.sh
     ;;
   *)
     echo "❌ Invalid choice. Exiting."
