@@ -1,5 +1,17 @@
-# Minecraft Bedrock ignored files
+# Runtime engine
 bedrock_server
 *.so
 *.zip
+*.html
+*.wlist
+*.txt
+
+# Dynamic content we don't want to track
+config/
+definitions/
+resource_packs/
+behavior_packs/
 worlds/
+
+# Optional backups
+*.tar.gz
