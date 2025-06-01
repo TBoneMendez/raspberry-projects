@@ -1,0 +1,23 @@
+# Ignorer alt i config/
+config/*
+
+# Tillat dette:
+!config/config/
+!config/config/system.xml
+!config/config/network.xml
+!config/config/users.xml
+!config/config/displaypreferences.db
+!config/config/encoding.xml
+
+# Fortsatt ignorer disse (selv om over har åpnet opp config/)
+config/config/auth.db
+config/config/users.db
+config/config/scheduledtasks.db
+config/config/activitylog.db
+config/config/library.db
+
+# Andre dynamiske eller irrelevante kataloger
+config/log/
+config/cache/
+config/metadata/
+config/data/
