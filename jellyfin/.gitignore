@@ -1,18 +1,5 @@
-config/*
-!config/config/
-!config/config/system.xml
-!config/config/network.xml
-!config/config/encoding.xml
-!config/config/displaypreferences.db
-!config/config/migrations.xml
-!config/config/logging.default.json
+# Ignorer alt i aktiv config
+config/
 
-# Fortsatt ignorer sensitive
-config/config/auth.db
-config/config/users.db
-config/config/library.db
-config/config/log/
-config/config/cache/
-config/config/data/
 
 .env
