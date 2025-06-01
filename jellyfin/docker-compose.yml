@@ -2,11 +2,11 @@ version: "3.8"
 services:
   jellyfin:
     image: jellyfin/jellyfin:latest
-    container_name: jellyfin
+    container_name: jellyfin-mediaserver
     #network_mode: host
     ports:
       - "8096:8096"
     volumes:
       - ./config:/config
-      - /mnt/c/Users/OPTHODEG/Documents/mediacenter:/media
+      - ${MEDIA_PATH}:/media
     restart: unless-stopped
