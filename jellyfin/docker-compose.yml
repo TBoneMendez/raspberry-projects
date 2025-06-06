@@ -1,12 +1,12 @@
-version: "3.8"
 services:
   jellyfin:
     image: jellyfin/jellyfin:latest
     container_name: jellyfin-mediaserver
-    #network_mode: host
     ports:
       - "8096:8096"
     volumes:
       - ./config:/config
-      - ${MEDIA_PATH}:/media
+      - ${MEDIA_PATH}/Filmer:/Filmer
+      - ${MEDIA_PATH}/TV Serier:/Serier
+      - ${MEDIA_PATH}/Musikk:/Musikk
     restart: unless-stopped
