@@ -1,10 +1,17 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
+ROOT="/home/pi/github/raspberry-projects/webserver"
+PIDFILE="$ROOT/run/startpage.pid"
 
-PID=$(pgrep -f server.py)
-
-if [ -n "$PID" ]; then
-  kill $PID
-  echo "🛑 Python-server stoppet (PID: $PID)"
+if [[ -f "$PIDFILE" ]]; then
+  PID=$(cat "$PIDFILE")
+  if kill -0 "$PID" 2>/dev/null; then
+    kill "$PID"
+    echo "Stoppet PID $PID."
+  else
+    echo "Prosess med PID $PID finnes ikke."
+  fi
+  rm -f "$PIDFILE"
 else
-  echo "ℹ️ Fant ingen kjørende Python-server å stoppe."
+  echo "Ingen PID-fil. Tjenesten kjører trolig ikke."
 fi

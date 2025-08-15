@@ -1,18 +1,23 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(realpath "$SCRIPT_DIR/..")"
-LOG_DIR="$PROJECT_ROOT/logs"
-LOG_FILE="$LOG_DIR/server.log"
+ROOT="/home/pi/github/raspberry-projects/webserver"
+PY="/usr/bin/python3"   # juster ved behov
+export PORT=8080
+export WEBROOT="/home/pi/github/web/startpage"
+export LOGDIR="$ROOT/logs"
 
-mkdir -p "$LOG_DIR"
+RUN="$ROOT/run"
+PIDFILE="$RUN/startpage.pid"
 
-PID=$(pgrep -f server.py)
-if [ -n "$PID" ]; then
-  echo "🧹 Stopper tidligere Python-server (PID: $PID)"
-  kill $PID
+mkdir -p "$LOGDIR" "$RUN"
+cd "$ROOT"
+
+if [[ -f "$PIDFILE" ]] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
+  echo "Startpage kjører allerede (PID $(cat "$PIDFILE"))."
+  exit 0
 fi
 
-echo "🚀 Starter Python-server i bakgrunnen..."
-nohup python3 "$PROJECT_ROOT/server.py" > "$LOG_FILE" 2>&1 &
-echo "📂 Logger til: $LOG_FILE"
+nohup "$PY" "$ROOT/server.py" >> "$LOGDIR/stdout.log" 2>&1 &
+echo $! > "$PIDFILE"
+echo "Startet Startpage (PID $(cat "$PIDFILE")). Logger: $LOGDIR/stdout.log"

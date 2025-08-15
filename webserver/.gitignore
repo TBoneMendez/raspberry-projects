@@ -1,0 +1,9 @@
+# Ignorer alle filer og mapper i denne mappen
+/*
+
+# Unntak for .gitignore selv
+!.gitignore
+
+# Ignorer loggfiler
+logs/
+*.log
