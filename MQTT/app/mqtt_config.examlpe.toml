@@ -1,0 +1,14 @@
+[broker]
+host = "192.168.68.75"   # Pi's IP or 'localhost' if Mosquitto runs here
+port = 1883
+username = "homeyuser"
+password = "CHANGE_ME"
+client_id_prefix = "pi5"
+
+[sqlite]
+path = "/home/pi/raspberry-projects/mqtt/data/mqtt_history.sqlite"
+retention_days = 30
+
+[topics]
+publish_temperature = "homey/event/temperature"
+subscribe_commands   = "homey/cmd/#"

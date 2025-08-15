@@ -1,0 +1,55 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# --- Configuration & Secrets ---
+# Local config files containing passwords/tokens
+mqtt_config.toml
+*.secret
+*.key
+*.crt
+*.pem
+
+# --- SQLite databases & backups ---
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.bak
+
+# --- Mosquitto ---
+docker/mosquitto/data/
+docker/mosquitto/log/
+docker/mosquitto/config/passwords
+
+# --- Logs ---
+*.log
+logs/
+log/
+
+# --- OS / Editor files ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
